@@ -1,23 +1,21 @@
 
-import { GeoForm } from './components/GeoForm';
-import { Person } from './components/Person';
-
 const Page = () => {
+  
+    const fullTime = new Intl.DateTimeFormat('pt-BR',{timeStyle: 'short', hour12: false}).format();
+
+    const hour = new Date().getHours();
+    
+
   return (
-    <div>
-
-     
-
-  <Person
-    nome= 'Elon Musk'
-    avatar='https://veja.abril.com.br/wp-content/uploads/2022/12/GettyImages-1438052951-1.jpg?quality=90&strip=info&w=900&h=600&crop=1'
-    roles= {['CEO da Tesla', 'CEO da spaceX', 'Meu tio']}
-  />
-  <Person
-    nome= 'Jeff bezos'
-    avatar='https://media.revistavanityfair.es/photos/60e82e7929af8ce08356c727/master/w_1600%2Cc_limit/197415.jpg'
-    roles= {['CEO da Amazon', 'CEO da Blue  origin', 'Meu tio']}
-  />
+    <div className="w-screen h-screen flex flex-col justify-center items-center text-white
+    bg-gradient-to-r from-sky-500 to-indigo-500
+    ">
+      <div className="text-9xl">{fullTime}</div>
+      <div className="text-5xl pt-3 font-bold ">
+        {hour >= 0 && hour <12 && 'Bom dia 😃'}
+        {hour >=12 && hour < 18 && 'Boa Tarde 😎'}
+        {hour >=18 && hour <= 23 && 'Boa Noite 😴'}
+      </div>
     </div>
   );
 }
